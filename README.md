@@ -1,78 +1,54 @@
-
 # Selab UI 组件库
 
-这个项目是一个基于 Vite、TypeScript、Vue 3 和 Vitepress 的组件库，为 Selab UI 提供了一系列的组件和工具。
-**注意：以下命令都是在selab-ui文件路径运行不需要cd到文件里面的路径**
-## 安装
+![Vue 3](https://img.shields.io/badge/Vue%203-16835D?style=flat-square&logo=vuedotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![VitePress](https://img.shields.io/badge/VitePress-334155?style=flat-square)
+![Vitest](https://img.shields.io/badge/Vitest-4A752C?style=flat-square&logo=vitest&logoColor=white)
+
+## 📌 项目简介
+
+Selab UI 是一套基于 Vue 3 和 TypeScript 的组件库，配套提供组件示例、文档站点和交互式组件脚手架。
+
+> 我在大三时主导了 Selab UI 项目。因为之前使用的 GitHub 账号丢失，我用现在的账号重新 Fork 了这个仓库，留存这段项目经历。 [原项目仓库](https://github.com/tyut-se-innovation-lab/selab-ui)
+
+## 🏗️ 系统架构
+
+- **组件库**使用 Vue 3、TypeScript 和 Less，通过 Gulp 构建，使用 Vitest 运行组件测试。
+- **组件脚手架**通过交互式 CLI 创建组件，支持 Vue 和 TSX 两种模板。
+- **开发与文档**使用 Vite 运行示例，通过 VitePress 提供组件文档。
+
+## 📁 项目结构
+
+| 路径 | 用途 |
+| --- | --- |
+| [packages/components](packages/components) | 组件源码、样式、测试和构建脚本 |
+| [packages/utils](packages/utils) | 公共工具 |
+| [packages/assets](packages/assets) | 共享资源 |
+| [cli](cli) | 交互式组件脚手架 |
+| [examples](examples) | 本地组件示例 |
+| [site/docs](site/docs) | VitePress 文档站源码 |
+
+## 🚀 如何启动
+
+准备 Node.js 18 和 pnpm。克隆后在仓库根目录执行。
 
 ```bash
+git clone https://github.com/wxk2378643343-cloud/selab-ui.git
+cd selab-ui
 pnpm run install:selab
 ```
-该命令安装了主项目和 CLI 工具的依赖项。安装在npm 安装cli文件夹的时候有时候他会显示安装完但是进度条还在可以直接`ctrl +  c`打断就行因为那个时候已经安装好了
-**如果有不能执行的需要看一下在那个文件夹里面打开那个路径单独`pnpm i` 一下应该不会出现这个问题了但也不确定**
 
-## 构建 Selab UI
-```bash
-pnpm run build:selab
-```
-该命令使用 Gulp 构建 Selab UI 组件。
+查看组件示例运行 `pnpm run dev:examples`，查看文档运行 `pnpm run docs:dev`。启动后打开终端显示的本地地址。
 
-## 创建 Selab UI
-```bash
-pnpm run create:selab
-```
-该命令运行 CLI 工具，用于创建 Selab UI 组件。
-通过交互式命令创建组件
-``` 
-# Q1:请输入组件英文名字
-# Q2:请输入组件中文名字
-# Q3:选用模板 :vue tsx 都已可以正常使用
-```
+| 命令 | 用途 |
+| --- | --- |
+| `pnpm run build:selab` | 使用 Gulp 构建组件库 |
+| `pnpm run create:selab` | 交互式创建组件 |
+| `pnpm run test:selab` | 运行组件测试 |
+| `pnpm run coverage:selab` | 生成测试覆盖率报告 |
+| `pnpm run lint:script` | 检查并自动修复脚本 |
+| `pnpm run lint:style` | 检查并自动修复样式 |
+| `pnpm run docs:build` | 构建静态文档站 |
 
-## 检查
-### 代码检查
-```bash
-pnpm run lint:script
-```
-该命令使用 ESLint 检查 JavaScript 和 TypeScript 文件。
-
-### 样式检查
-
-```bash
-pnpm run lint:style
-```
-该命令使用 Stylelint 检查 CSS 和 LESS 文件。
-
-## 测试
-### 运行测试
-```bash
-pnpm run test:selab
-```
-该命令进入组件目录并使用 Vitest 运行测试。
-
-### 代码覆盖率
-```bash
-pnpm run coverage:selab
-```
-该命令计算 Selab UI 组件的代码覆盖率。
-
-## 文档
-### 运行服务文档
-```bash
-pnpm run docs:dev
-```
-该命令启动 Vitepress 开发服务器，用于位于 site/docs 目录中的文档。
-
-### 打包服务文档
-```bash
-pnpm run docs:build
-```
-该命令使用 Vitepress 构建文档。
-
-## 示例开发
-```bash
-pnpm run dev:examples
-```
-该命令进入示例目录并使用 Vite 启动开发服务器。
- ## 注意 
- 最好使用node18 的版本
+组件目录约定和 Vue、TSX 模板写法见 [组件开发指南](DEVELOPMENT_GUIDE.md)。
